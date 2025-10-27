@@ -1,0 +1,103 @@
+{
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "contact": "Contact",
+  "contactMe": "Contact Me",
+  "viewGithub": "View My GitHub",
+  "aboutMe": "I’m Nima, a web developer specializing in JavaScript, React, and Node.js. My experience covers building interactive user interfaces, developing RESTful APIs, and optimizing applications for scalability and performance. I’m committed to clean code principles, modern architecture, and user-centered design. I perform well in collaborative environments and enjoy leveraging new technologies to deliver innovative solutions. My goal is to create software that combines technical excellence with a seamless user experience.",
+  "webDeveloper": "web Developer",
+  "SkillsIcon": [
+    {
+      "name": "JavaScript",
+      "icon": "siJavascript",
+      "description": "Creating dynamic web applications using ES6 features"
+    },
+    {
+      "name": "HTML5",
+      "icon": "siHtml5",
+      "description": "Building structured and accessible web content"
+    },
+    {
+      "name": "CSS3",
+      "icon": "siCss3",
+      "description": "Styling responsive and modern web layouts"
+    },
+    {
+      "name": "Tailwind CSS",
+      "icon": "siTailwindcss",
+      "description": "Rapidly styling components with utility-first CSS"
+    },
+    {
+      "name": "Git",
+      "icon": "siGit",
+      "description": "Version control and collaborative code management"
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "siBootstrap",
+      "description": "Building fast and responsive UI components"
+    },
+    {
+      "name": "Express.js",
+      "icon": "siExpress",
+      "description": "Creating RESTful APIs and server-side logic efficiently"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "siMongodb",
+      "description": "Managing NoSQL databases for scalable applications"
+    },
+    {
+      "name": "Redux Toolkit",
+      "icon": "siRedux",
+      "description": "State management for complex React applications"
+    },
+    {
+      "name": "Next.js",
+      "icon": "siNextdotjs",
+      "description": "Building full-stack React applications with SSR support"
+    },
+    {
+      "name": "React",
+      "icon": "siReact",
+      "description": "Building dynamic and responsive user interfaces"
+    },
+    {
+      "name": "React Testing Library",
+      "icon": "siTestinglibrary",
+      "description": "Testing React components effectively and efficiently"
+    },
+    {
+      "name": "Material UI",
+      "icon": "siMui",
+      "description": "Building modern and accessible React user interfaces"
+    }
+  ],
+  "Connect": [
+    {
+      "id": "b7e3x",
+      "name": "GitHub",
+      "icon": "siGithub",
+      "link": "https://github.com/yourusername"
+    },
+    {
+      "id": "c5z1k",
+      "name": "Instagram",
+      "icon": "siInstagram",
+      "link": "https://www.instagram.com/"
+    },
+    {
+      "id": "d4q8t",
+      "name": "Telegram",
+      "icon": "siTelegram",
+      "link": "https://t.me/yourusername"
+    },
+    {
+      "id": "e6m2v",
+      "name": "WhatsApp",
+      "icon": "siWhatsapp",
+      "link": "tel:+1234567890"
+    }
+  ]
+}

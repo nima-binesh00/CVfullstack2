@@ -1,0 +1,103 @@
+{
+  "home": "خانه",
+  "about": "درباره ما",
+  "services": "خدمات",
+  "contact": "تماس با ما",
+  "contactMe": "تماس با من",
+  "viewGithub": "مشاهده گیت‌هاب من",
+  "aboutMe": "من نیما هستم، توسعه‌دهنده‌ی وب با تخصص در JavaScript، React و Node.js. تجربه‌ی من شامل طراحی و پیاده‌سازی رابط‌های کاربری تعاملی، توسعه‌ی REST APIها، و بهینه‌سازی ساختار پروژه‌ها برای عملکرد و مقیاس‌پذیری بالاست. به اصول کدنویسی تمیز، معماری مدرن و طراحی مبتنی بر تجربه‌ی کاربر اعتقاد دارم. در محیط‌های تیمی عملکرد بالایی دارم و از به‌کارگیری فناوری‌های جدید برای ارائه‌ی راه‌حل‌های خلاقانه لذت می‌برم. هدفم خلق نرم‌افزارهایی است که هم از نظر فنی قوی باشند و هم تجربه‌ای منحصربه‌فرد برای کاربران فراهم کنند.",
+  "webDeveloper": "توسعه دهنده وب",
+  "SkillsIcon": [
+    {
+      "name": "JavaScript",
+      "icon": "siJavascript",
+      "description": "ایجاد برنامه‌های وب پویا با استفاده از قابلیت‌های ES6"
+    },
+    {
+      "name": "HTML5",
+      "icon": "siHtml5",
+      "description": "ساخت محتوای وب ساختارمند و قابل دسترس"
+    },
+    {
+      "name": "CSS3",
+      "icon": "siCss3",
+      "description": "طراحی چیدمان‌های وب مدرن و واکنش‌گرا"
+    },
+    {
+      "name": "Tailwind CSS",
+      "icon": "siTailwindcss",
+      "description": "طراحی سریع کامپوننت‌ها با CSS با رویکرد utility-first"
+    },
+    {
+      "name": "Git",
+      "icon": "siGit",
+      "description": "کنترل نسخه و مدیریت همکاری در کدنویسی"
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "siBootstrap",
+      "description": "ساخت سریع و واکنش‌گرای کامپوننت‌های رابط کاربری"
+    },
+    {
+      "name": "Express.js",
+      "icon": "siExpress",
+      "description": "ایجاد APIهای RESTful و منطق سمت سرور به شکل بهینه"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "siMongodb",
+      "description": "مدیریت پایگاه داده‌های NoSQL برای برنامه‌های مقیاس‌پذیر"
+    },
+    {
+      "name": "Redux Toolkit",
+      "icon": "siRedux",
+      "description": "مدیریت وضعیت برای برنامه‌های پیچیده React"
+    },
+    {
+      "name": "Next.js",
+      "icon": "siNextdotjs",
+      "description": "ساخت برنامه‌های React فول‌استک با پشتیبانی SSR"
+    },
+    {
+      "name": "React",
+      "icon": "siReact",
+      "description": "ساخت رابط‌های کاربری پویا و واکنش‌گرا"
+    },
+    {
+      "name": "React Testing Library",
+      "icon": "siTestinglibrary",
+      "description": "تست مؤثر و کارآمد کامپوننت‌های React"
+    },
+    {
+      "name": "Material UI",
+      "icon": "siMui",
+      "description": "ساخت رابط‌های کاربری مدرن و قابل دسترس برای React"
+    }
+  ],
+  "Connect": [
+    {
+      "id": "b7e3x",
+      "name": "گیت‌هاب",
+      "icon": "siGithub",
+      "link": "https://github.com/yourusername"
+    },
+    {
+      "id": "c5z1k",
+      "name": "اینستاگرام",
+      "icon": "siInstagram",
+      "link": "https://www.instagram.com/"
+    },
+    {
+      "id": "d4q8t",
+      "name": "تلگرام",
+      "icon": "siTelegram",
+      "link": "https://t.me/yourusername"
+    },
+    {
+      "id": "e6m2v",
+      "name": "واتساپ",
+      "icon": "siWhatsapp",
+      "link": "tel:+1234567890"
+    }
+  ]
+}

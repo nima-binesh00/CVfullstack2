@@ -1,0 +1,41 @@
+{
+  "name": "nima",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "next build || true"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/vazirmatn": "^5.2.8",
+    "@reduxjs/toolkit": "^2.9.1",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@tailwindcss/vite": "^4.1.14",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.545.0",
+    "matter-js": "^0.20.0",
+    "mongoose": "^8.19.2",
+    "next": "14.2.33",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.65.0",
+    "react-parallax-tilt": "^1.7.310",
+    "react-redux": "^9.2.0",
+    "redux-persist": "^6.0.0",
+    "simple-icons": "^15.16.1"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.14.3",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}
