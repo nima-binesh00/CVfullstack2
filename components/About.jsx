@@ -8,7 +8,7 @@ import { useTranslation } from "./UseTranslation";
 import { Changebody } from "@/redux/state";
 import Link from "next/link";
 
-export default function About() {
+export default function About({ setIsAuthorized }) {
   const { language } = useTranslation(); // ← بدون "en" یا "fa"
   const dispatch = useDispatch();
   const header = useSelector((state) => state.Data);
@@ -111,7 +111,13 @@ export default function About() {
       >
         Apply
       </button>
-      <Link href="/">
+      <Link
+        href="/"
+        onClick={() => {
+          localStorage.removeItem("auth_token");
+          setIsAuthorized(false);
+        }}
+      >
         <button className="w-[100px] fixed top-52  z-50 transition delay-150 duration-300 ease-in-out rounded-md font-bold p-2 bg-red-600 text-white">
           Exit
         </button>
