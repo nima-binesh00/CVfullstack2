@@ -5,7 +5,7 @@ export const saveHeader = createAsyncThunk(
   "CV/saveHeader",
   async (headerData) => {
     const { header, about, SkillsIcon, Connect } = headerData;
-    const res = await fetch("http://localhost:3000/api/data", {
+    const res = await fetch("https://cvfullstack.netlify.app/api/data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ header, about, SkillsIcon, Connect }),
@@ -24,7 +24,7 @@ export const fetchAllData = createAsyncThunk(
   "data/fetchAll",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch("http://localhost:3000/api/data");
+      const res = await fetch("https://cvfullstack.netlify.app/api/data");
       if (!res.ok) throw new Error("Failed to fetch data");
       const resd = await res.json();
       // console.dir(resd);
