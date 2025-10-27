@@ -39,9 +39,9 @@ export default function Skillsusers() {
             <article
               key={key}
               className=" relative col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col items-center justify-center rounded-xl 
-                            transition ease-linear transform hover:scale-105
-                            shadow-md hover:shadow-sm
-                            dark:shadow-blue-400 dark:hover:shadow-none` "
+                                      transition ease-linear transform hover:scale-105
+                                      shadow-md hover:shadow-sm
+                                      dark:shadow-blue-400 dark:hover:shadow-none` "
             >
               <div
                 className={`flex flex-col items-center p-2`}
@@ -56,11 +56,9 @@ export default function Skillsusers() {
                   }}
                 />
 
-                <h3 className="mt-2 font-semibold text-center">
-                  {language === "fa" ? skill.name : skill.name}
-                </h3>
+                <h3 className="mt-2 font-semibold text-center">{skill.name}</h3>
                 <p className="text-xs text-gray-600 dark:text-gray-300 text-center mt-1">
-                  {language === "fa" ? skill.description : skill.description}
+                  {skill.description}
                 </p>
               </div>
             </article>
