@@ -31,7 +31,7 @@ export default function DesktopMenu({ language }) {
             )
           }
           key={item.href}
-          href="#Footer"
+          href={item.href}
           scroll={false}
           onClick={(e) => {
             e.preventDefault(); // نذار Next.js بخواد مسیر عوض کنه

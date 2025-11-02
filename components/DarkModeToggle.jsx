@@ -31,6 +31,9 @@ export default function DarkModeToggle() {
 
   return (
     <button
+      data-aos="fade-down"
+      data-aos-easing="ease-in-out"
+      data-aos-delay="700"
       onClick={toggleDarkMode}
       className="flex items-center justify-center p-2 w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all"
     >

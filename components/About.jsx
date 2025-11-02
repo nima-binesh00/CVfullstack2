@@ -3,19 +3,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveHeader } from "@/redux/Thunk"; // مسیر درست به فایل thunk
 
 import Image from "next/image";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "./UseTranslation";
-import { Changebody } from "@/redux/state";
+import { Changebody, Changeimage } from "@/redux/state";
 import Link from "next/link";
 
 export default function About({ setIsAuthorized }) {
-  const { language } = useTranslation(); // ← بدون "en" یا "fa"
+  const fileInputRef = useRef(null);
+  const image = useSelector((state) => state.Data.about.image);
   const dispatch = useDispatch();
+  const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
+
+  // وقتی فایل انتخاب شد
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => dispatch(Changeimage({ text: reader.result }));
+
+    reader.readAsDataURL(file);
+  };
+  const { language } = useTranslation();
   const header = useSelector((state) => state.Data);
 
   const heahertext = useSelector((state) => {
-    // console.log(state);
-
     return language == "en" ? state.Data.about.en : state.Data.about.fn;
   });
   return (
@@ -23,12 +37,20 @@ export default function About({ setIsAuthorized }) {
       <section className="w-full grid md:grid-cols-2 grid-flow-row py-5 p-1 justify-items-center gap-3 container m-auto grid-cols-1  grid-rows-2 md:grid-rows-1">
         <article className=" row-span-1 flex align-middle">
           <Image
-            src="/Profile.webp"
+            src={image}
             alt="Profile image"
             width={400}
             height={400}
             className="object-cover"
+            onClick={handleImageClick}
             priority
+          />
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            style={{ display: "none" }}
           />
         </article>
         <article className="flex flex-col row-span-1 px-2 md:px-0">

@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <header className="fixed  w-full shadow-2xl drop-shadow-md shadow-slate-600 z-50 ">
-      <section className="relative  dark:bg-slate-500 dark:text-whitebg-slate-400 transition-all duration-300">
+      <section className="relative bg-gray-400 bg-opacity-95 dark:bg-slate-500 dark:text-whitebg-slate-400 transition-all duration-300">
         <nav className="flex items-center justify-between p-5 relative z-50  container m-auto  ">
           {/* لوگو */}
           <span

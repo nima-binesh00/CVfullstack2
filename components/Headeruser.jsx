@@ -6,7 +6,12 @@ import DesktopMenu from "./DesktopMenuuser";
 import { useTranslation } from "./UseTranslation";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-
+import { Caveat } from "next/font/google";
+const ctve = Caveat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+});
 export default function Headeruser() {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,14 +44,18 @@ export default function Headeruser() {
   }, []);
 
   return (
-    <header
-      className="fixed  w-full shadow-2xl drop-shadow-md shadow-slate-600 z-50 "
-      id="Footer"
-    >
+    <header className="fixed  w-full shadow-2xl drop-shadow-md shadow-slate-600 z-50 ">
       <section className="relative  dark:bg-slate-500 dark:text-white bg-slate-400 transition-all duration-300">
         <nav className="flex items-center justify-between p-5 relative z-50  container m-auto  ">
           {/* لوگو */}
-          <span className="text-3xl font-bold">{heahertext[0]}</span>
+          <span
+            className={`text-3xl font-bold ${ctve.className}`}
+            data-aos="fade-down"
+            data-aos-easing="ease-in-out"
+            data-aos-delay="100"
+          >
+            {heahertext[0]}
+          </span>
 
           {/* منوی دسکتاپ */}
           <DesktopMenu language={language} />
@@ -54,7 +63,12 @@ export default function Headeruser() {
           {/* بخش راست */}
           <div className="flex items-center gap-2">
             {/* انتخاب زبان */}
-            <div className="relative">
+            <div
+              className="relative"
+              data-aos="fade-down"
+              data-aos-easing="ease-in-out"
+              data-aos-delay="600"
+            >
               <button
                 onClick={() => setOpen(!open)}
                 className="flex items-center gap-2 px-4 py-2 text-sm border rounded-lg"
@@ -108,6 +122,9 @@ export default function Headeruser() {
 
             {/* دکمه منوی موبایل */}
             <button
+              data-aos="fade-down"
+              data-aos-easing="ease-in-out"
+              data-aos-delay="700"
               ref={buttonRef}
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden flex items-center justify-center p-2 w-10 h-10 text-gray-600 dark:text-amber-50 rounded-lg hover:bg-gray-100 transition"

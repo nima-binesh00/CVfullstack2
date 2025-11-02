@@ -11,17 +11,32 @@ import {
   Changestyledescription,
   Changestylename,
   DeleteSkill,
+  DeleteSkillicon,
   newskill,
 } from "@/redux/state";
 import AddSkillModal from "./Modulskill";
+import IconPickerModal from "./Iconmodule";
 
 export default function Skills() {
+  const [isModalOpenicon, setIsModalOpenicon] = useState(false);
+  const { language } = useTranslation();
+  const [index, setindex] = useState(null);
+
+  const handleIconSubmit = (data) => {
+    console.log("🧩 Selected icon data:", data);
+    dispatch(
+      DeleteSkillicon({
+        index: index,
+        icon: data.icon,
+        language: language,
+      })
+    );
+  };
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleNewLink = (data) => {
     dispatch(newskill({ text: data, language: language }));
   };
-  const { language } = useTranslation();
   const heahertext = useSelector((state) => {
     return language == "en"
       ? state.Data.SkillsIcon.en
@@ -74,6 +89,10 @@ export default function Skills() {
                 style={{ color: `#${icon.hex}` }}
               >
                 <div
+                  onClick={() => {
+                    setindex(key);
+                    setIsModalOpenicon(true);
+                  }}
                   dangerouslySetInnerHTML={{ __html: icon.svg }}
                   style={{
                     width: "50px",
@@ -129,6 +148,11 @@ export default function Skills() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleNewLink}
+      />
+      <IconPickerModal
+        isOpen={isModalOpenicon}
+        onClose={() => setIsModalOpenicon(false)}
+        onSubmit={handleIconSubmit}
       />
     </section>
   );

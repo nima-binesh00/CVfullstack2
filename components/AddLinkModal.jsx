@@ -1,9 +1,15 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useState } from "react";
+import * as icons from "simple-icons";
 
 export default function AddLinkModal({ isOpen, onClose, onSubmit }) {
-  const { register, handleSubmit, reset } = useForm();
+  const { control, register, handleSubmit, reset } = useForm({
+    defaultValues: { name: "", icon: "", link: "" },
+  });
   const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedIcon, setSelectedIcon] = useState(null);
+  const allIcons = Object.values(icons);
 
   const submitHandler = (data) => {
     setLoading(true);
@@ -12,6 +18,8 @@ export default function AddLinkModal({ isOpen, onClose, onSubmit }) {
     setTimeout(() => {
       setLoading(false);
       onClose();
+      setSuggestions([]);
+      setSelectedIcon(null);
     }, 400);
   };
 
@@ -25,6 +33,7 @@ export default function AddLinkModal({ isOpen, onClose, onSubmit }) {
         </h2>
 
         <form onSubmit={handleSubmit(submitHandler)} className="space-y-4">
+          {/* Name */}
           <div>
             <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
               Name
@@ -36,18 +45,93 @@ export default function AddLinkModal({ isOpen, onClose, onSubmit }) {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
-              Icon
-            </label>
-            <input
-              {...register("icon", { required: true })}
-              placeholder="The icons must be from **Simple Icons** only.
-"
-              className="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none dark:bg-gray-700 dark:text-white"
-            />
-          </div>
+          {/* IconInput با Controller */}
+          <Controller
+            name="icon"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => {
+              const handleChange = (e) => {
+                field.onChange(e); // فرم هم آپدیت میشه
+                const value = e.target.value;
+                if (!value.trim()) return setSuggestions([]);
+                setSuggestions(
+                  allIcons
+                    .filter((icon) =>
+                      icon.title.toLowerCase().includes(value.toLowerCase())
+                    )
+                    .slice(0, 10)
+                );
+              };
 
+              const handleSelect = (icon) => {
+                const entry = Object.entries(icons).find(
+                  ([, v]) => v.slug === icon.slug
+                );
+                const exportName = entry ? entry[0] : icon.slug;
+                field.onChange(exportName); // فرم بلافاصله آپدیت میشه
+                setSelectedIcon(icon);
+                setSuggestions([]);
+              };
+
+              return (
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
+                    Icon
+                  </label>
+                  <input
+                    {...field}
+                    value={field.value}
+                    onChange={handleChange}
+                    placeholder="مثلاً: tailwindcss"
+                    className="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none dark:bg-gray-700 dark:text-white"
+                  />
+
+                  {suggestions.length > 0 && (
+                    <ul className="absolute z-10 w-full bg-white dark:bg-gray-800 border rounded-lg mt-1 max-h-56 overflow-y-auto shadow-md">
+                      {suggestions.map((icon) => (
+                        <li
+                          key={icon.slug}
+                          onClick={() => handleSelect(icon)}
+                          className="flex items-center gap-3 p-2 cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700"
+                        >
+                          <div
+                            dangerouslySetInnerHTML={{ __html: icon.svg }}
+                            style={{
+                              width: "24px",
+                              height: "24px",
+                              fill: `#${icon.hex}`,
+                              color: `#${icon.hex}`,
+                            }}
+                          />
+                          <span>{icon.title}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {selectedIcon && (
+                    <div className="flex flex-col items-center p-3 mt-3">
+                      <div
+                        dangerouslySetInnerHTML={{ __html: selectedIcon.svg }}
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          color: `#${selectedIcon.hex}`,
+                          fill: `#${selectedIcon.hex}`,
+                        }}
+                      />
+                      <span className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                        {selectedIcon.title}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            }}
+          />
+
+          {/* Link */}
           <div>
             <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
               Link
@@ -59,6 +143,7 @@ export default function AddLinkModal({ isOpen, onClose, onSubmit }) {
             />
           </div>
 
+          {/* Buttons */}
           <div className="flex justify-end gap-3 pt-4">
             <button
               type="button"

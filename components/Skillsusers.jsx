@@ -16,13 +16,23 @@ export default function Skillsusers() {
       : state.Data.SkillsIcon.fn;
   });
   return (
-    <section className="w-full dark:bg-gray-800">
-      <span className="block text-center text-5xl mt-10 dark:text-sky-200 p-5">
+    <section className="w-full dark:bg-gray-800" id="Skill">
+      <span
+        className="block text-center text-5xl mt-10 dark:text-sky-200 p-5"
+        data-aos="fade-down"
+        data-aos-easing="ease-in-out"
+        data-aos-delay="700"
+      >
         {language === "fa" ? "مهارت‌های من" : "My Skills"}
       </span>
 
       {/* لوگو لوپ */}
-      <article className="w-full pt-3 container m-auto">
+      <article
+        className="w-full pt-3 container m-auto"
+        data-aos="zoom-in"
+        data-aos-easing="ease-in-out"
+        data-aos-delay="700"
+      >
         <LogoLoop />
       </article>
 
@@ -37,6 +47,9 @@ export default function Skillsusers() {
 
           return (
             <article
+              data-aos="fade-up"
+              data-aos-easing="ease-in-out"
+              data-aos-delay="100"
               key={key}
               className=" relative col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col items-center justify-center rounded-xl 
                                       transition ease-linear transform hover:scale-105

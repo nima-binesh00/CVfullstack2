@@ -8,8 +8,10 @@ export default function Footer() {
 
   return (
     <footer
+      data-aos="zoom-in"
+      data-aos-easing="ease-in-out"
+      data-aos-delay="100"
       className="bg-white text-gray-800 py-10 dark:bg-gray-800 mt-100"
-      id="Footer"
     >
       <div
         className={`container mx-auto text-center ${

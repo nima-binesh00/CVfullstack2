@@ -2,15 +2,29 @@
 import React, { useEffect, useState } from "react";
 import About from "@/components/About";
 import Header from "@/components/Header";
-import { TranslationProvider } from "@/components/UseTranslation";
 import Skills from "@/components/Skills";
 import Comment from "@/components/Connect";
 import Footer from "@/components/Footer";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import { persistor, store } from "@/redux/Store";
 import { PersistGate } from "redux-persist/integration/react";
 import { loginAction } from "@/components/Token";
+import { fetchAllData } from "@/redux/Thunk";
+function InitDataLoader() {
+  const dispatch = useDispatch();
 
+  const alreadyFetched = sessionStorage.getItem("dataFetched");
+
+  if (!alreadyFetched) {
+    console.log("✅ fetching all data for the first time...");
+    dispatch(fetchAllData());
+    sessionStorage.setItem("dataFetched", "true");
+  } else {
+    console.log("🟡 data already fetched, skipping...");
+  }
+
+  return null;
+}
 export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -68,13 +82,12 @@ export default function AdminPage() {
     <div className="dark:bg-gray-800">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <TranslationProvider>
-            <Header />
-            <About setIsAuthorized={setIsAuthorized} />
-            <Skills />
-            <Comment />
-            <Footer />
-          </TranslationProvider>
+          <InitDataLoader />
+          <Header />
+          <About setIsAuthorized={setIsAuthorized} />
+          <Skills />
+          <Comment />
+          <Footer />
         </PersistGate>
       </Provider>
     </div>

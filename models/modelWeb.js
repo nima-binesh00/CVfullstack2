@@ -7,6 +7,7 @@ const yourSchema = new mongoose.Schema({
     fn: { type: [String], default: [] },
   },
   about: {
+    image: String,
     en: { type: [String], default: [] },
     fn: { type: [String], default: [] },
   },

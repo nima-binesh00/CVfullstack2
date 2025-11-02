@@ -19,10 +19,13 @@ export default function Connect() {
       : state.Data.Connect.Link.fn;
   });
   return (
-    <section className="container mx-auto w-full mt-10">
+    <section className="container mx-auto w-full mt-10" id="Footer">
       <section className="grid grid-cols-2 gap-2 p-0 lg:px-16">
         {/* متن اصلی */}
         <article
+          data-aos="fade-right"
+          data-aos-easing="ease-in-out"
+          data-aos-delay="100"
           className={`flex flex-col align-middle pt-10 p-2 lg:p-16 col-span-2 md:col-span-1 ${
             language === "fa" ? "text-right" : "text-left"
           }`}
@@ -44,8 +47,13 @@ export default function Connect() {
             language === "fa" ? "text-right" : "text-left"
           }`}
         >
-          <article className="w-full sm:w-[400px] flex align-middle p-1 my-4 gap-1 sm:gap-x-5 shadow-md shadow-gray-400 rounded-md transition hover:-translate-y-1 hover:scale-110 delay-150 duration-300 ease-in-out dark:shadow-indigo-700 dark:text-teal-300">
-            <Linkedin />
+          <article
+            className="w-full sm:w-[400px] flex align-middle p-1 my-4 gap-1 sm:gap-x-5 shadow-md shadow-gray-400 rounded-md transition hover:-translate-y-1 hover:scale-110 delay-150 duration-300 ease-in-out dark:shadow-indigo-700 dark:text-teal-300"
+            data-aos="fade-left"
+            data-aos-easing="ease-in-out"
+            data-aos-delay="200"
+          >
+            <Linkedin size={50} />
             <span className="align-bottom text-wrap sm:text-nowrap">
               {language === "fa" ? "لینک دین " : "LinkedIn"}
               <br />
@@ -62,6 +70,9 @@ export default function Connect() {
 
             return (
               <article
+                data-aos="fade-left"
+                data-aos-easing="ease-in-out"
+                data-aos-delay="200"
                 key={key}
                 className="w-full sm:w-[400px] flex align-middle p-1 my-4 gap-1 sm:gap-x-5 shadow-md shadow-gray-400 rounded-md transition hover:-translate-y-1 hover:scale-110 delay-150 duration-300 ease-in-out dark:shadow-indigo-700 dark:text-teal-300"
               >

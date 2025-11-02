@@ -4,7 +4,7 @@ import { fetchAllData, saveHeader } from "./Thunk"; // مسیر فایل thunk
 const initialState = {
   Data: {
     header: { en: [], fn: [] },
-    about: { en: [], fn: [] },
+    about: { image: "", en: [], fn: [] },
     SkillsIcon: {
       en: [],
       fn: [],
@@ -127,6 +127,20 @@ const state = createSlice({
         state.Data.Connect.Link.fn.splice(index, 1);
       }
     },
+    Changeimage: (state, action) => {
+      const { text } = action.payload;
+
+      state.Data.about.image = text;
+    },
+    DeleteSkillicon: (state, action) => {
+      const { index, language, icon } = action.payload;
+
+      if (language === "en") {
+        state.Data.SkillsIcon.en[index].icon = icon;
+      } else {
+        state.Data.SkillsIcon.fn[index].icon = icon;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -136,7 +150,6 @@ const state = createSlice({
       })
       .addCase(saveHeader.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
 
         state.Data = action.payload; // جایگزینی کل header با داده جدید
       })
@@ -149,7 +162,7 @@ const state = createSlice({
       })
       .addCase(fetchAllData.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
+        console.log("all/data");
 
         state.Data = action.payload;
       })
@@ -172,5 +185,7 @@ export const {
   newskill,
   newLink,
   DeleteLink,
+  Changeimage,
+  DeleteSkillicon,
 } = state.actions;
 export default state.reducer;
